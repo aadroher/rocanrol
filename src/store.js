@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const songsStoreFilePath = `${__dirname}/../data/songs.json`;
-const pageSize = 10;
+const pageSize = 2;
 
 const readFile = filePath =>
   new Promise((resolve, reject) => {

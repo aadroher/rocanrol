@@ -4,8 +4,10 @@
   "description": "A barebones audio data service.",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./src",
     "start": "node bin/start.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon bin/start.js -w ./src",
+    "test": "npm run lint && jest"
   },
   "author": "Armand Adroher",
   "license": "ISC",
@@ -19,6 +21,7 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
     "prettier": "^1.18.2"
   }
 }

@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-const app = require('../app');
+const app = require('../src/app');
 const debug = require('debug')('rocanrol:server');
 const http = require('http');
 
@@ -25,22 +25,19 @@ const normalizePort = val => {
   }
 
   return false;
-}
+};
 
 /**
  * Event listener for HTTP server "error" event.
  */
 
 const onError = err => {
-  const { syscall, code
-  } = err;
+  const { syscall, code } = err;
   if (err.syscall !== 'listen') {
     throw err;
   }
 
-  const bind = typeof port === 'string'
-    ? `Pipe ${port}`
-    : `Port ${port}`;
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (err.code) {
@@ -55,7 +52,7 @@ const onError = err => {
     default:
       throw err;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
@@ -63,11 +60,9 @@ const onError = err => {
 
 const onListening = () => {
   const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'Pipe ' + addr
-    : 'Port ' + addr.port;
+  const bind = typeof addr === 'string' ? 'Pipe ' + addr : 'Port ' + addr.port;
   debug('Listening on ' + bind);
-}
+};
 
 /**
  * Get port from environment and store in Express.
@@ -89,5 +84,3 @@ const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-

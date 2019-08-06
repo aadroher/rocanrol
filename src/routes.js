@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const { list } = require('./controller');
+
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.status(200).send({ title: 'Roncanrol!' });
-});
+router.get('/songs', list);
 
 module.exports = router;
