@@ -10,7 +10,12 @@ const readFile = filePath =>
       if (err) {
         reject(err);
       } else {
-        resolve(data);
+        try {
+          const parsedData = JSON.parse(data);
+          resolve(parsedData);
+        } catch (err) {
+          reject(err);
+        }
       }
     });
   });

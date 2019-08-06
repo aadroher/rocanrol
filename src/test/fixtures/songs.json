@@ -1,0 +1,26 @@
+[
+  {
+    "id": "crit",
+    "title": "Crit",
+    "author": "vàlius",
+    "album": "Escola",
+    "publisher": "The Indian Runners",
+    "filename": "crit.vorbis"
+  },
+  {
+    "id": "consol_condol",
+    "title": "Consol, Condol",
+    "author": "L'Hereu Escampa",
+    "album": "S/T",
+    "publisher": "Famèlic Records",
+    "filename": "consol_condol.vorbis"
+  },
+  {
+    "id": "tot_es_aqui",
+    "title": "Tot és aquí",
+    "author": "Da Souza",
+    "album": "El Gran Salt Endavant",
+    "publisher": "Famèlic Records",
+    "filename": "tot_es_aqui.vorbis"
+  }
+]

@@ -2,12 +2,17 @@ jest.mock('fs');
 const fs = require('fs');
 const path = require('path');
 const { list } = require('../store');
-const songsFixture = require('./fixtures/songs');
+const songsFixture = require('./fixtures/songs.json');
+
+const fixtureReplicationFactor = 20;
+
+const getReplicatedFixture = n =>
+  JSON.stringify([...Array(n).keys()].map(i => songsFixture).flat());
 
 describe('store.js', () => {
   beforeAll(() => {
     fs.readFile.mockImplementation((path, callback) => {
-      callback(null, songsFixture);
+      callback(null, getReplicatedFixture(fixtureReplicationFactor));
     });
   });
 
@@ -25,11 +30,12 @@ describe('store.js', () => {
         expect.any(Function)
       );
     });
-    it('returns all songs', async () => {
-      console.log({ songsFixture });
+    it('returns the songs for the first page by default', async () => {
       const songs = await list();
-      console.log({ songs });
-      expect(songs).toEqual(songsFixture);
+      const expectedResults = JSON.parse(
+        getReplicatedFixture(fixtureReplicationFactor)
+      ).slice(0, 10);
+      expect(songs).toEqual(expectedResults);
     });
   });
 });
