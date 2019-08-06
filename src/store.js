@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const songsStoreFilePath = `${__dirname}/../data/songs.json`;
+const pageSize = 10;
 
 const readFile = filePath =>
   new Promise((resolve, reject) => {
@@ -10,12 +11,22 @@ const readFile = filePath =>
       if (err) {
         reject(err);
       } else {
-        resolve(data);
+        try {
+          const parsedData = JSON.parse(data);
+          resolve(parsedData);
+        } catch (err) {
+          reject(err);
+        }
       }
     });
   });
 
-const list = async () => readFile(songsStoreFilePath);
+const list = async ({ pageNumber = 0 } = {}) => {
+  const start = pageNumber * pageSize;
+  const end = (pageNumber + 1) * pageSize;
+  const allSongs = await readFile(songsStoreFilePath);
+  return allSongs.slice(start, end);
+};
 
 module.exports = {
   list,
