@@ -1,0 +1,11 @@
+{
+  "name": "rocanrol",
+  "version": "0.1.0",
+  "description": "A barebones audio data service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Armand Adroher",
+  "license": "ISC"
+}
