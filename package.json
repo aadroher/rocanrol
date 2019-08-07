@@ -1,13 +1,14 @@
 {
   "name": "rocanrol",
   "version": "0.1.0",
-  "description": "A barebones audio data service.",
+  "description": "A barebones audio database service.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src",
+    "lint": "eslint --fix ./src",
     "start": "node bin/start.js",
     "dev": "nodemon bin/start.js",
-    "test": "npm run lint && jest"
+    "test:watch": "jest --watch",
+    "test": "npm run lint && jest --coverage"
   },
   "author": "Armand Adroher",
   "license": "ISC",
