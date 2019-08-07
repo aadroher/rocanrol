@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 
 const publicDir = resolve(`${__dirname}/../public`);
-
 const config = {
   publicDir,
   fileDir: `${publicDir}/files`,

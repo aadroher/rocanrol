@@ -44,25 +44,41 @@ describe('store.js', () => {
   });
 
   describe('list', () => {
-    it('reads the correct file', async () => {
-      await list(defaultParams);
-      expect(fs.readFile).toHaveBeenCalledWith(
-        mockSongsStoreFilePath,
-        expect.any(Function)
-      );
+    describe('data loading', () => {
+      it('reads the correct file', async () => {
+        await list(defaultParams);
+        expect(fs.readFile).toHaveBeenCalledWith(
+          mockSongsStoreFilePath,
+          expect.any(Function)
+        );
+      });
     });
 
-    it('returns records with the correct shape', async () => {
-      const { songs: thirdPageSongs } = await list({ pageNumber: 1 });
+    describe('record transformation', () => {
+      it('adds the url field', async () => {
+        const { songs } = await list({ pageNumber: 0 });
+        const expectedSongs = songsFixture.slice(0, mockPageSize).map(song => {
+          const { id } = song;
+          const url = `/files/${id}.ogg`;
+          return {
+            ...song,
+            url,
+          };
+        });
+
+        expect(songs).toEqual(expectedSongs);
+      });
     });
 
-    it('returns the correct songs for a non-zero page', async () => {
-      const { songs: thirdPageSongs } = await list({ pageNumber: 1 });
-      const expectedSongs = songsFixture.slice(
-        mockPageSize * 1,
-        mockPageSize * 2
-      );
-      expect(thirdPageSongs).toMatchObject(expectedSongs);
+    describe('pagination', () => {
+      it('returns the correct songs for a non-zero page', async () => {
+        const { songs: thirdPageSongs } = await list({ pageNumber: 1 });
+        const expectedSongs = songsFixture.slice(
+          mockPageSize * 1,
+          mockPageSize * 2
+        );
+        expect(thirdPageSongs).toMatchObject(expectedSongs);
+      });
     });
   });
 });
