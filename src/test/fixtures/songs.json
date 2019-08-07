@@ -1,26 +1,44 @@
 [
   {
-    "id": "crit",
-    "title": "Crit",
-    "author": "vàlius",
-    "album": "Escola",
-    "publisher": "The Indian Runners",
-    "filename": "crit.vorbis"
+    "id": "beach_beach-plants",
+    "title": "Plants",
+    "author": "Beach Beach",
+    "album": "Tasteless Peace",
+    "publisher": "La Castanya"
   },
   {
-    "id": "consol_condol",
-    "title": "Consol, Condol",
-    "author": "L'Hereu Escampa",
-    "album": "S/T",
-    "publisher": "Famèlic Records",
-    "filename": "consol_condol.vorbis"
-  },
-  {
-    "id": "tot_es_aqui",
+    "id": "da_souza-tot_es_aqui",
     "title": "Tot és aquí",
     "author": "Da Souza",
     "album": "El Gran Salt Endavant",
-    "publisher": "Famèlic Records",
-    "filename": "tot_es_aqui.vorbis"
+    "publisher": "Famèlic Records"
+  },
+  {
+    "id": "el_pesol_ferestec-merce",
+    "title": "Mercè",
+    "author": "El Pèsol Feréstec",
+    "album": "Mercè",
+    "publisher": "La Castanya"
+  },
+  {
+    "id": "l_hereu_escampa-consol_condol",
+    "title": "Consol, Condol",
+    "author": "L'Hereu Escampa",
+    "album": "S/T",
+    "publisher": "Famèlic Records"
+  },
+  {
+    "id": "les_sueques-accio",
+    "title": "Acció",
+    "author": "Les Sueques",
+    "album": "Moviment",
+    "publisher": "El Genio Equivocado"
+  },
+  {
+    "id": "valius-diguem_no",
+    "title": "Diguem no",
+    "author": "vàlius",
+    "album": "Escola",
+    "publisher": "The Indian Runners"
   }
 ]

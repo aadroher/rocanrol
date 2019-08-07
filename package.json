@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./src",
     "start": "node bin/start.js",
-    "dev": "nodemon bin/start.js -w ./src",
+    "dev": "nodemon bin/start.js",
     "test": "npm run lint && jest"
   },
   "author": "Armand Adroher",

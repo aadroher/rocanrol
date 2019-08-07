@@ -2,7 +2,6 @@
 /**
  * Module dependencies.
  */
-
 const app = require('../src/app');
 const debug = require('debug')('rocanrol:server');
 const http = require('http');
