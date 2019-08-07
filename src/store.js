@@ -23,11 +23,37 @@ const readFile = filePath =>
     });
   });
 
-const list = async ({ pageNumber }) => {
+const getPaginationInfo = ({ pageNumber, allSongs }) => {
   const start = pageNumber * pageSize;
   const end = (pageNumber + 1) * pageSize;
+  const numSongs = allSongs.length;
+  const numPages = Math.ceil(numSongs / pageSize);
+  console.log({ numSongs, pageSize, numPages });
+  return {
+    start,
+    end,
+    numPages,
+  };
+};
+
+const addAudioFileUrl = song => {
+  const { id } = song;
+  const fileUrl = `/files/${id}.ogg`;
+  return {
+    ...song,
+    url: fileUrl,
+  };
+};
+
+const list = async ({ pageNumber }) => {
   const allSongs = await readFile(songsStoreFilePath);
-  return allSongs.slice(start, end);
+  const { start, end, numPages } = getPaginationInfo({ pageNumber, allSongs });
+  const songs = allSongs.slice(start, end).map(addAudioFileUrl);
+  return {
+    pageNumber,
+    numPages,
+    songs,
+  };
 };
 
 module.exports = {

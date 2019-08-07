@@ -16,9 +16,14 @@ const list = async (req, res, next) => {
   } = req;
   const pageNumber = parseInt(page, 10);
   try {
-    const songs = await listSongs({ pageNumber });
+    const {
+      pageNumber: page_number,
+      numPages: num_pages,
+      songs,
+    } = await listSongs({ pageNumber });
     res.status(200).json({
-      page: pageNumber,
+      page_number,
+      num_pages,
       songs,
     });
   } catch ({ message }) {
