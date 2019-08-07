@@ -1,8 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const songsStoreFilePath = `${__dirname}/../data/songs.json`;
-const pageSize = 10;
+const {
+  pagination: { pageSize },
+  store: { filePath: songsStoreFilePath },
+} = require('./config');
 
 const readFile = filePath =>
   new Promise((resolve, reject) => {
@@ -21,7 +23,7 @@ const readFile = filePath =>
     });
   });
 
-const list = async ({ pageNumber = 0 } = {}) => {
+const list = async ({ pageNumber }) => {
   const start = pageNumber * pageSize;
   const end = (pageNumber + 1) * pageSize;
   const allSongs = await readFile(songsStoreFilePath);
