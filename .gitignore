@@ -1,3 +1,4 @@
 *.ogg
 node_modules
-data
+coverage
+data/songs.json

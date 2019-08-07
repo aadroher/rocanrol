@@ -14,4 +14,6 @@ const config = {
   },
 };
 
-module.exports = config;
+module.exports = {
+  getConfig: () => config,
+};
