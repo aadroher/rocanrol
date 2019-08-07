@@ -13,30 +13,26 @@ const defaultParams = {
   pageNumber: 0,
 };
 
-const getReplicatedFixture = n =>
-  JSON.stringify([...Array(n).keys()].map(i => songsFixture).flat());
-
-const mockReadFile = () => {
-  fs.readFile.mockImplementation((path, callback) => {
-    callback(null, JSON.stringify(songsFixture));
-  });
+const getReadFileMock = (err = null, data = JSON.stringify(songsFixture)) => (
+  path,
+  callback
+) => {
+  callback(err, data);
 };
 
-const mockConfig = () => {
-  config.getConfig.mockImplementation(() => ({
-    pagination: {
-      pageSize: mockPageSize,
-    },
-    store: {
-      filePath: mockSongsStoreFilePath,
-    },
-  }));
-};
+const getConfigMock = () => () => ({
+  pagination: {
+    pageSize: mockPageSize,
+  },
+  store: {
+    filePath: mockSongsStoreFilePath,
+  },
+});
 
 describe('store.js', () => {
   beforeAll(() => {
-    mockReadFile();
-    mockConfig();
+    fs.readFile.mockImplementation(getReadFileMock());
+    config.getConfig.mockImplementation(getConfigMock());
   });
 
   beforeEach(() => {
@@ -78,6 +74,35 @@ describe('store.js', () => {
           mockPageSize * 2
         );
         expect(thirdPageSongs).toMatchObject(expectedSongs);
+      });
+
+      it('includes the page number in the return value', async () => {
+        const expectedPageNumber = 1;
+        const { pageNumber } = await list({ pageNumber: expectedPageNumber });
+        expect(pageNumber).toEqual(expectedPageNumber);
+      });
+
+      it('includes the total number of pages in the return value', async () => {
+        const expectedNumPages = Math.ceil(songsFixture.length / mockPageSize);
+        const { numPages } = await list({ pageNumber: expectedNumPages });
+        expect(numPages).toEqual(expectedNumPages);
+      });
+    });
+
+    describe('error handling', () => {
+      it('buddles up any error thrown by fs.readFile', async () => {
+        const message = 'Ouch! Something went wrong!';
+        const mockError = new Error(message);
+        fs.readFile.mockImplementation(getReadFileMock(mockError));
+        await expect(list({ pageNumber: 1 })).rejects.toThrow(mockError);
+      });
+
+      it('bubbles up any error thrown by JSON.parse', async () => {
+        const badJson = 'Nah, this is not JSON';
+        const message = 'Unexpected token N in JSON at position 0';
+        const mockError = new Error(message);
+        fs.readFile.mockImplementation(getReadFileMock(null, badJson));
+        await expect(list({ pageNumber: 1 })).rejects.toThrow(mockError);
       });
     });
   });
