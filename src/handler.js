@@ -1,16 +1,18 @@
-const {
-  pagination: { defaultPage },
-} = require('./config');
+const { getConfig } = require('./config');
 const { list: listSongs } = require('./store');
 
 const methodNotAllowed = (req, res, next) => {
   const message = 'Method Not Allowed';
-  res.status(405).json({
+  const res1 = res.status(405);
+  res1.json({
     message,
   });
 };
 
 const list = async (req, res, next) => {
+  const {
+    pagination: { defaultPage },
+  } = getConfig();
   const {
     query: { page = defaultPage },
   } = req;
