@@ -1,11 +1,12 @@
 const { resolve } = require('path');
 
 const publicDir = resolve(`${__dirname}/../public`);
+const dataDir = resolve(`${__dirname}/../data`);
 const config = {
   publicDir,
   fileDir: `${publicDir}/files`,
   store: {
-    filePath: resolve(`${__dirname}/../data/songs.json`),
+    filePath: `${dataDir}/songs.json`,
   },
   pagination: {
     pageSize: 2,
