@@ -3,8 +3,7 @@ const { list: listSongs } = require('./store');
 
 const methodNotAllowed = (req, res, next) => {
   const message = 'Method Not Allowed';
-  const res1 = res.status(405);
-  res1.json({
+  res.status(405).json({
     message,
   });
 };
