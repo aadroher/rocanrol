@@ -70,7 +70,7 @@ Currently the service only offers one endpoint for one HTTP verb.
   The `/songs` collection lists all songs present in the system's database.
 
   Query string parameters:
-    - `page :: integer`: (Optional) A string parseable as an integer that indicates the page of the `/songs` collection that needs to be retrieved. The current page size is 2.
+    - `page`: (Optional) A string parseable as an integer that indicates the page number of the `/songs` collection that needs to be retrieved. The current page size is 2.
 
   Response body:
 
@@ -103,6 +103,17 @@ The `src/config.js` file includes the global parameters to configure the executi
 - The page size.
 - The default page.
 
+
+## What is missing
+
+Even under the minimal scope of a single collection list GET endpoint, there are still outstanding tasks that would need to be done in order to consider this service as production ready. There are some of them:
+
+- The routes definition is to restrictive by allowinf none but the GET and HEAD methods. One would expect OPTIONS to return an informative answer.
+- There is no actioal validation for the value of the `page` query string parameter. I have yet to consider if it needs any.
+- All errors that take place in the `hander.list` function are communicated to the client as a simple 500 innternal server error, but the error message is passed down to the response body. Not only is this not secure enough, since it may show internal information but it would be more informative if there was a more granular mapping between errors and HTTP error codes and messages.
+- The syncronization between the `url` values in the song records and the actual files in the system is not robust enough. This value should be null or not present, if there is no corresponding audio file.
+  
+   
 
 
 
