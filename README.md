@@ -60,3 +60,50 @@ npm start
 ```
 
 And the service will be accessible at `localhost:3000`.
+
+## API
+
+Currently the service only offers one endpoint for one HTTP verb.
+
+- `GET /songs?page={page_number}`
+
+  The `/songs` collection lists all songs present in the system's database.
+
+  Query string parameters:
+    - `page :: integer`: (Optional) A string parseable as an integer that indicates the page of the `/songs` collection that needs to be retrieved. The current page size is 2.
+
+  Response body:
+
+    - `page_number`: An integer indicating the page retrieved.
+    - `num_pages`: An integer representing the total number of non-empty pages.
+    - `songs`: An array of objects, each representing the metadata for one of the songs in the system. Their attributes are all strings, and they indicate:
+      - `id`: A unique slug that identifies the song.
+      - `title`: The title of the song.
+      - `author`: The name of the author of the song.
+      - `album`: The name of the album thios song was published in.
+      - `publisher`: The name of the record label that published the album.
+      - `url`: A site-relative URL to the audio file with the song.
+
+## Internal architechture
+
+Rocanrol is a service build on top of [Express](https://expressjs.com/).
+
+For any received request, the call stack follows the path:
+
+```
+route -> handler -> store -> file system
+```
+
+Since the functionality is currently extremely simple, no common logic has been abstacted out.
+
+The `src/config.js` file includes the global parameters to configure the execution of the service. Among others, it includes:
+
+- The filesystem path of audio files.
+- The filesystem path the database file.
+- The page size.
+- The default page.
+
+
+
+
+
