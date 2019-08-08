@@ -84,6 +84,33 @@ Currently the service only offers one endpoint for one HTTP verb.
       - `publisher`: The name of the record label that published the album.
       - `url`: A site-relative URL to the audio file with the song.
 
+  For example:
+
+  ```{json}
+  {
+    "page_number": 1,
+    "num_pages": 3,
+    "songs": [
+        {
+            "id": "el_pesol_ferestec-merce",
+            "title": "Mercè",
+            "author": "El Pèsol Feréstec",
+            "album": "Mercè",
+            "publisher": "La Castanya",
+            "url": "/files/el_pesol_ferestec-merce.ogg"
+        },
+        {
+            "id": "l_hereu_escampa-consol_condol",
+            "title": "Consol, Condol",
+            "author": "L'Hereu Escampa",
+            "album": "S/T",
+            "publisher": "Famèlic Records",
+            "url": "/files/l_hereu_escampa-consol_condol.ogg"
+        }
+    ]
+  }
+  ```
+
 ## Internal architechture
 
 Rocanrol is a service build on top of [Express](https://expressjs.com/).
