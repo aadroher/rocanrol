@@ -2,10 +2,11 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 
-const { publicDir } = require('../src/config');
+const { getConfig } = require('../src/config');
 const routes = require('./routes');
 
 const app = express();
+const { publicDir } = getConfig();
 
 app.use(logger('dev'));
 app.use(express.json());
