@@ -2,7 +2,7 @@
   "name": "rocanrol",
   "version": "0.1.0",
   "description": "A barebones audio database service.",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "lint": "eslint --fix ./src",
     "setup": "node bin/setup.js",
