@@ -7,11 +7,32 @@
     "publisher": "La Castanya"
   },
   {
+    "id": "da_souza-abril",
+    "title": "Abril",
+    "author": "Da Souza",
+    "album": "El Gran Salt Endavant",
+    "publisher": "Famèlic Records"
+  },
+  {
+    "id": "da_souza-migracions_de_salmons",
+    "title": "Migracions de Salmons",
+    "author": "Da Souza",
+    "album": "Futbol d'Avantguarda",
+    "publisher": "Famèlic Records"
+  },
+  {
     "id": "da_souza-tot_es_aqui",
     "title": "Tot és aquí",
     "author": "Da Souza",
     "album": "El Gran Salt Endavant",
     "publisher": "Famèlic Records"
+  },
+  {
+    "id": "el_pesol_ferestec-atencio",
+    "title": "Atenció",
+    "author": "El Pèsol Feréstec",
+    "album": "L'Exemple dels Ocells",
+    "publisher": "The Indian Runners"
   },
   {
     "id": "el_pesol_ferestec-merce",
@@ -28,11 +49,60 @@
     "publisher": "Famèlic Records"
   },
   {
+    "id": "l_hereu_escampa-la_feram",
+    "title": "La Feram",
+    "author": "L'Hereu Escampa",
+    "album": "llamp de Déu",
+    "publisher": "Famèlic Records"
+  },
+  {
+    "id": "l_hereu_escampa-la_font",
+    "title": "La Font",
+    "author": "L'Hereu Escampa",
+    "album": "llamp de Déu",
+    "publisher": "Famèlic Records"
+  },
+  {
     "id": "les_sueques-accio",
     "title": "Acció",
     "author": "Les Sueques",
     "album": "Moviment",
     "publisher": "El Genio Equivocado"
+  },
+  {
+    "id": "les_sueques-cor_pelut",
+    "title": "Cor Pelut",
+    "author": "Les Sueques",
+    "album": "Educació Física",
+    "publisher": "El Genio Equivocado"
+  },
+  {
+    "id": "los_punsetes-arsenal_de_excusas",
+    "title": "Arsenal de Excusas",
+    "author": "Los Punsetes",
+    "album": "LPIV",
+    "publisher": "CANADA Editorial"
+  },
+  {
+    "id": "los_punsetes-opinion_de_mierda",
+    "title": "Opinión de Mierda",
+    "author": "Los Punsetes",
+    "album": "LPIV",
+    "publisher": "CANADA Editorial"
+  },
+  {
+    "id": "los_punsetes-viva",
+    "title": "¡Viva!",
+    "author": "Los Punsetes",
+    "album": "¡Viva!",
+    "publisher": "Mushroom Pillow"
+  },
+  {
+    "id": "valius-crit",
+    "title": "Crit",
+    "author": "vàlius",
+    "album": "Escola",
+    "publisher": "The Indian Runners"
   },
   {
     "id": "valius-diguem_no",
