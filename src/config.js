@@ -9,7 +9,7 @@ const config = {
     filePath: `${dataDir}/songs.json`,
   },
   pagination: {
-    pageSize: 2,
+    pageSize: 5,
     defaultPage: 0,
   },
 };
