@@ -22,8 +22,8 @@ _If_ you have a zip file with the audio files to be served for the database seed
 
 ```
 cd public
-cp /path/to/folder/rocanrol_songs.zip .
-unzip -u rocanrol_songs.zip
+cp /path/to/folder/more_rocanrol_songs.zip .
+unzip -u more_rocanrol_songs.zip
 ```
 
 This operation should have created the `public/files/` directory and populated with a collection of `.ogg` files.
